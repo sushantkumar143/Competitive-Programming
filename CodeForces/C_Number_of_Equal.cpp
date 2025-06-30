@@ -5,17 +5,39 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    vector<int> arr1(n);
-    vector<int> arr2(m);
+    vector<int> a(n), b(m);
+    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int i = 0; i < m; i++) cin >> b[i];
 
-    for (int i = 0; i < n; i++) cin >> arr1[i];
-    for (int i = 0; i < m; i++) cin >> arr2[i];
+    long long ans = 0;
+    int i = 0, j = 0;
 
-    int cnt = 0;
-    int p1 = 0, p2 = 0, mid = 0;
+    while (i < n && j < m) {
+        if (a[i] == b[j]) {
+            // Count frequency of a[i] in array a
+            int cntA = 0, cntB = 0;
+            int val = a[i];
 
-    while(p1<=p2)
+            while (i < n && a[i] == val) {
+                cntA++;
+                i++;
+            }
 
-    cout << cnt << endl;
+            while (j < m && b[j] == val) {
+                cntB++;
+                j++;
+            }
+
+            ans += 1LL * cntA * cntB;
+        } 
+        else if (a[i] < b[j]) {
+            i++;
+        } 
+        else {
+            j++;
+        }
+    }
+
+    cout << ans << "\n";
     return 0;
 }

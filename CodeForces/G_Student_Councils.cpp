@@ -1,37 +1,35 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-bool good(long long mid, int k, vector<int>&arr){
-    long long tot = 0;
-    for(int i: arr){
-        tot += min(mid, i*1ll);
-    }
-
-    return tot >= mid*k;
-}
-
-int main(){
-    int k, n, sm=0;
+int main() {
+    int k, n;
     cin >> k >> n;
-    vector<int> arr(n);
-    for(int i=0; i<n; i++){
-        cin >> arr[i];
-        sm += arr[i];
+    vector<long long> a(n);
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
     }
 
-    int left = 1;
-    int right = sm;
+    long long low = 0, high = 1e12;
     long long ans = 0;
-    while(left <= right){
-        int mid = (left+right)/2;
-        if(good(mid, k, arr)){
-            ans = mid;
-            left = mid+1;
+
+    while (low <= high) {
+        long long mid = (low + high) / 2;
+        long long students = 0;
+        
+        for (int i = 0; i < n; i++) {
+            students += min(a[i], mid);
         }
-        else{
-            right = mid-1;
+
+        if (students >= mid * k) {
+            ans = mid;     
+            low = mid + 1; 
+        } else {
+            high = mid - 1; 
         }
     }
 
-    cout << ans;
+    cout << ans << endl;
+    return 0;
 }
