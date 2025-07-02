@@ -14,7 +14,6 @@ int main() {
 
     while (i < n && j < m) {
         if (a[i] == b[j]) {
-            // Count frequency of a[i] in array a
             int cntA = 0, cntB = 0;
             int val = a[i];
 
