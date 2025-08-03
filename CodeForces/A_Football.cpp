@@ -2,30 +2,27 @@
 using namespace std;
 
 int main() {
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
 
-    if(s.length() < 7){
-        cout << "NO";
-        return 0;
+    unordered_map<string, int> score;
+    string team;
+
+    while (n--) {
+        cin >> team;
+        score[team]++;
     }
 
-    int cnt = 1;
-    char last = s[0];
+    string winner = "";
+    int maxGoals = 0;
 
-    for(int i=1; i<s.length(); i++){
-        if(cnt == 7){
-            cout << "YES";
-            return 0;
-        }
-        if(s[i] == last){
-            cnt++;
-        }
-        else{
-            cnt = 1;
-            last = s[i];
+    for (auto &entry : score) {
+        if (entry.second > maxGoals) {
+            maxGoals = entry.second;
+            winner = entry.first;
         }
     }
 
-    cout << "NO";
+    cout << winner << endl;
+    return 0;
 }
