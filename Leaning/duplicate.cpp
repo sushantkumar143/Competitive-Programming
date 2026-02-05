@@ -10,10 +10,9 @@ int main(){
     int ans = 0;
     for(int i=0; i<n; i++){
         ans ^= arr[i];
-        ans ^= i+1;
     }
-    // for(int i=1; i<n; i++){
-    //     ans ^= i;
-    // }
+    for(int i=1; i<n; i++){
+        ans ^= i;
+    }
     cout << ans;
 }
