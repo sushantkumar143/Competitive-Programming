@@ -5,7 +5,6 @@ public:
 
         for(int neigh : rooms[node]) {
             if(!vis[neigh]) {
-                vis[neigh] = true;
                 dfs(neigh, vis, rooms);
             }
         }

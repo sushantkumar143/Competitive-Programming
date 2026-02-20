@@ -27,7 +27,6 @@ public:
         for(int i=0; i<n; i++) dp[i][i] = true;
 
         for(int L=2; L<=n; L++) {
-            vector<string> temp;
             for(int i=0; i+L-1<n; i++) {
                 int j = i+L-1;
 
