@@ -50,7 +50,8 @@ public:
         string ans="";
 
         while(!q.empty()){
-            int u=q.front(); q.pop();
+            int u=q.front(); 
+            q.pop();
             ans.push_back(u+'a');
 
             for(int v: adj[u]){

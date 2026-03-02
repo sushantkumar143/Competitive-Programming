@@ -1,4 +1,7 @@
 // https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/?envType=problem-list-v2&envId=graph
+#include<bits/stdc++.h>
+using namespace std;
+
 
 class Solution {
 public:
@@ -11,8 +14,8 @@ public:
 
         int m = matrix.size();
         int n = matrix[0].size();
-        int best = 1;  // path length including this cell
-
+        int best = 1;
+        
         for (int k = 0; k < 4; k++) {
             int r = i + row[k];
             int c = j + col[k];
