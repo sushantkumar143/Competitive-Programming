@@ -1,5 +1,8 @@
 // The API isBadVersion is defined for you.
-// bool isBadVersion(int version);
+bool isBadVersion(int version);
+
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
