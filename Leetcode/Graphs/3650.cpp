@@ -1,6 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
-    int minCost(int n, vector<vector<int>>& edges) {
+    int minCost(int n, vector<vector<int>>& edges) {/mmmmmmmmmm
         vector<vector<pair<int, int>>> adj(n);
 
         for (auto x : edges) {
